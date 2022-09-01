@@ -1,4 +1,24 @@
 {
+  "name": "learn-firestore",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andywijaya15/learn-firestore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andywijaya15/learn-firestore/issues"
+  },
+  "homepage": "https://github.com/andywijaya15/learn-firestore#readme",
   "dependencies": {
     "firebase": "^9.9.3"
   }
