@@ -1,9 +1,9 @@
 import { firebase } from '../configs/firebase.js';
-import { getFirestore, collection, getDocs, getDoc, doc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const db = getFirestore(firebase);
 
-export const readPribadi = async (req, res) => {
+const pribadi = async () => {
     const pribadiCol = collection(db, 'pribadi');
     const pribadiSnapshot = await getDocs(pribadiCol);
     let data = [];
@@ -19,5 +19,9 @@ export const readPribadi = async (req, res) => {
         }
         data.push(doc);
     });
-    res.send(data);
+    return data;
+}
+
+export const readPribadi = async (req, res) => {
+    res.send(await pribadi());
 }
