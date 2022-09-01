@@ -8,13 +8,16 @@ export const readPribadi = async (req, res) => {
     const pribadiSnapshot = await getDocs(pribadiCol);
     let data = [];
     pribadiSnapshot.docs.map(each => {
-        const d = new Date(each.data().tgllahir.toDate());
-        const row = {
-            nama: each.data().nama,
+        const row = each.data();
+        const d = new Date(row.tgllahir.toDate());
+        const doc = {
+            nama: `${row.kode} ${row.nama}`,
             tgllahir: d.toLocaleString("id-ID", { dateStyle: "long" }),
-            alamat: each.data().alamat
+            alamat: row.alamat,
+            aktif: row.is_aktif ? "AKTIF" : "TIDAK AKTIF",
+            umur: new Date().getFullYear() - d.getFullYear()
         }
-        data.push(row);
+        data.push(doc);
     });
     res.send(data);
 }
