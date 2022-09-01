@@ -1,21 +1,12 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import express from "express";
+import Router from "./routes/pribadi.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyBYOHhpML5pUAMbvwxx8inGDe5HJ1Ie_Co",
-    authDomain: "jkims-f7347.firebaseapp.com",
-    projectId: "jkims-f7347",
-    storageBucket: "jkims-f7347.appspot.com",
-    messagingSenderId: "363906957269",
-    appId: "1:363906957269:web:74b64ca0789f9c49c9c75c",
-    measurementId: "G-2LNTZ7JQGX"
-};
+const app = express();
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+app.use(Router);
+
+const port = 3000;
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+});
